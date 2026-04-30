@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital List — EasyCare+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <nav>
+        <div class="nav-logo">
+            <img src="../../image/hospital-4-svgrepo-com.svg" alt="logo" width="30px">
+            EasyCare +
+        </div>
+        <div class="nav-links">
+          <a href="../../HomePage/Home.html">Home</a>
+          <a class="active" href="#">Hospital List</a>
+          <a href="../../adminDashboard/index.html">Admin Dashboard</a>
+          <a href="../../issueReport/index.html">Issue Report</a>
+        </div>
+      </nav>
+
+      <div class="content">
+        <div class="search-row">
+          <div class="search-wrap">
+            <span class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+            </span>
+            <input id="searchInput" type="text" placeholder="Search Hospital / Area..." oninput="filterTable()" />
+          </div>
+          <button class="btn-search" onclick="filterTable()">Search</button>
+        </div>
+
+        <div class="stat-cards">
+          <div class="stat-card stat-total"><span class="num" id="totalCount">0</span> Total Hospitals</div>
+          <div class="stat-card stat-normal"><span class="num" id="normalCount">0</span> Normal</div>
+          <div class="stat-card stat-busy"><span class="num" id="busyCount">0</span> Busy</div>
+          <div class="stat-card stat-critical"><span class="num" id="criticalCount">0</span> Critical</div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-dot selected" onclick="setFilter('all', this)"><span class="dot dot-all"></span> All</div>
+          <div class="filter-dot" onclick="setFilter('Normal', this)"><span class="dot dot-normal"></span> Normal</div>
+          <div class="filter-dot" onclick="setFilter('Busy', this)"><span class="dot dot-busy"></span> Busy</div>
+          <div class="filter-dot" onclick="setFilter('Critical', this)"><span class="dot dot-critical"></span> Critical</div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Hospital Name</th>
+              <th>Area</th>
+              <th>Beds</th>
+              <th>ICU</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+      <footer>
+        <div class="footer-container">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <i class="fa-solid fa-hospital-user"></i>
+              <h3>EASY<span>CARE</span></h3>
+            </div>
+            <p>Centralized Government Hospital Monitoring System — for smarter, faster healthcare decisions across Maharashtra.</p>
+            <div class="footer-socials">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="../../HomePage/Home.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+              <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Hospital List</a></li>
+              <li><a href="../../adminDashboard/index.html"><i class="fa-solid fa-chevron-right"></i> Admin Dashboard</a></li>
+              <li><a href="../../issueReport/index.html"><i class="fa-solid fa-chevron-right"></i> Issue Report</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#"><i class="fa-solid fa-chevron-right"></i> OPD Availability</a></li>
+              <li><a href="#"><i class="fa-solid fa-chevron-right"></i> ICU Status</a></li>
+              <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Emergency Units</a></li>
+              <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Bed Availability</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fa-solid fa-envelope"></i> support@easycare.gov.in</p>
+            <p><i class="fa-solid fa-location-dot"></i> Maharashtra, India</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 EasyCare. All rights reserved. | Developed for Government Hospital Monitoring</p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

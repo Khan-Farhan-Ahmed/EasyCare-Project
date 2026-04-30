@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Details — EasyCare+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body> 
+
+  <div class="app">
+
+    <nav>
+      <div class="nav-logo">
+            <img src="../../image/hospital-4-svgrepo-com.svg" alt="logo" width="30px">
+            EasyCare +
+      </div>
+      <div class="nav-links">
+        <a href="../../HomePage/Home.html">Home</a>
+        <a href="../list-page/index.html">Hospital List</a>
+        <a href="../../adminDashboard/index.html">Admin Dashboard</a>
+        <a href="../../issueReport/index.html">Issue Report</a>
+      </div>
+    </nav>
+
+    <div class="detail-header">
+      <a class="btn-back" href="../list-page/index.html">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </a>
+      <div class="detail-title-group">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" opacity="0.85"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <h1 id="dName">Hospital Name</h1>
+        <span class="status-badge" id="dBadge"></span>
+      </div>
+    </div>
+
+    <div class="detail-sub">
+      <span>
+        <span class="dot-loc"></span>
+        <span id="dArea">Area, Mumbai</span>
+      </span>
+      <span class="divider">|</span>
+      <span>Last Updated: <strong class="updated">10 mins ago</strong></span>
+    </div>
+
+    <div class="detail-body">
+
+      <div class="card services-card">
+        <h2 class="card-title blue">Services Status</h2>
+        <div class="service-row">
+          <span class="dot dot-green"></span>
+          <span class="svc-label">Beds:</span>
+          <span class="svc-badge" id="dBeds"></span>
+        </div>
+        <div class="service-row">
+          <span class="dot dot-green"></span>
+          <span class="svc-label">ICU:</span>
+          <span class="svc-badge" id="dICU"></span>
+        </div>
+        <div class="service-row">
+          <span class="dot dot-green"></span>
+          <span class="svc-label">Emergency:</span>
+          <span class="svc-badge svc-available">Available</span>
+        </div>
+        <div class="service-row">
+          <span class="dot dot-green"></span>
+          <span class="svc-label">OPD:</span>
+          <span class="svc-badge svc-open">Open</span>
+        </div>
+        <div class="legend-mini">
+          <span class="legend-item"><span class="dot dot-normal"></span> Normal</span>
+          <span class="legend-item"><span class="dot dot-busy"></span> Busy</span>
+          <span class="legend-item"><span class="dot dot-critical"></span> Critical</span>
+        </div>
+      </div>
+
+      <div class="card load-card">
+        <h2 class="card-title">Hospital Load</h2>
+        <div class="gauge-wrap">
+          <canvas id="gaugeCanvas" width="180" height="100"></canvas>
+        </div>
+        <div class="reason-box" id="dReason">Reason: —</div>
+      </div>
+
+      <div class="card map-card">
+        <div class="map-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#2563eb" style="flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Hospital Location
+          <span id="mapAddress" style="margin-left:auto;font-size:12px;color:#64748b;font-weight:400;"></span>
+        </div>
+        <div id="map"></div>
+        <div class="map-footer">
+          <span id="mapCoords" style="color:#64748b;font-size:12px;"></span>
+          <a id="mapLink" href="#" target="_blank" class="map-ext-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="details.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Issue Report</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+      <nav>
+        <div class="nav-logo">
+            <img src="../image/hospital-4-svgrepo-com.svg" alt="logo" width="30px">
+            EasyCare +
+        </div>
+        <div class="nav-links">
+          <a href="../../HomePage/Home.html">Home</a>
+          <a href="../HospitallistPage/list-page/index.html">Hospital List</a>
+          <a href="../../adminDashboard/index.html">Admin Dashboard</a>
+          <a class="active"">Issue Report</a>
+        </div>
+      </nav>
+
+  <div class="page-wrap">
+
+    <div class="form-title-bar">
+      <strong>ISSUE REPORT FORM</strong>
+      <span class="form-ref">Form No: HMS-IRF-01</span>
+    </div>
+
+    <form id="issueForm" novalidate>
+
+      <div class="section-head">Section A - Reporter Details</div>
+
+      <table class="form-table">
+        <tr>
+          <td class="label-cell"><label for="reporterName">Full Name <span class="req">*</span></label></td>
+          <td><input type="text" id="reporterName" placeholder="Enter full name"/>
+              <div class="err" id="err-reporterName">This field is required.</div></td>
+          <td class="label-cell"><label for="designation">Designation</label></td>
+          <td><input type="text" id="designation" placeholder="e.g. Admin, Nurse"/></td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="contactEmail">Email Address</label></td>
+          <td><input type="email" id="contactEmail" placeholder="your@email.com"/></td>
+          <td class="label-cell"><label for="contactPhone">Phone Number<span class="req">*</span></label></td>
+          <td><input type="tel" id="contactPhone" placeholder="10-digit mobile number"/></td>
+        </tr>
+      </table>
+
+      <div class="section-head">Section B – Hospital Details</div>
+
+      <table class="form-table">
+        <tr>
+          <td class="label-cell"><label for="hospitalId">Hospital ID</label></td>
+          <td><input type="text" id="hospitalId" placeholder="e.g. HOS12345"/></td>
+          <td class="label-cell"><label for="hospitalName">Hospital Name <span class="req">*</span></label></td>
+          <td>
+            <select id="hospitalName">
+              <option value="">-- Select --</option>
+              <option>Malad Govt Hospital</option>
+              <option>Cooper Hospital</option>
+              <option>KEM Hospital</option>
+              <option>City Hospital</option>
+              <option>Other</option>
+            </select>
+            <div class="err" id="err-hospitalName">Please select a hospital.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="area">Area / Location <span class="req">*</span></label></td>
+          <td><input type="text" id="area" placeholder="e.g. Malad, Parel"/>
+              <div class="err" id="err-area">This field is required.</div></td>
+          <td class="label-cell"><label for="issueDate">Date of Issue <span class="req">*</span></label></td>
+          <td><input type="date" id="issueDate"/>
+              <div class="err" id="err-issueDate">Please select a date.</div></td>
+        </tr>
+      </table>
+
+      <div class="section-head">Section C – Issue Details</div>
+
+      <table class="form-table">
+        <tr>
+          <td class="label-cell"><label for="issueCategory">Issue Category <span class="req">*</span></label></td>
+          <td>
+            <select id="issueCategory">
+              <option value="">-- Select --</option>
+              <option>Bed Availability</option>
+              <option>ICU Capacity</option>
+              <option>Emergency Services</option>
+              <option>OPD</option>
+              <option>Data Mismatch</option>
+              <option>System / Technical</option>
+              <option>Other</option>
+            </select>
+            <div class="err" id="err-issueCategory">Please select a category.</div>
+          </td>
+          <td class="label-cell"><label>Severity <span class="req">*</span></label></td>
+          <td>
+            <label class="radio-lbl"><input type="radio" name="severity" value="Normal"/> Normal</label>
+            <label class="radio-lbl"><input type="radio" name="severity" value="Busy"/> Busy</label>
+            <label class="radio-lbl"><input type="radio" name="severity" value="Critical"/> Critical</label>
+            <div class="err" id="err-severity">Please select severity.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-cell">Affected Services</td>
+          <td colspan="3">
+            <label class="check-lbl"><input type="checkbox" value="Beds"/> Beds</label>
+            <label class="check-lbl"><input type="checkbox" value="ICU"/> ICU</label>
+            <label class="check-lbl"><input type="checkbox" value="Emergency"/> Emergency</label>
+            <label class="check-lbl"><input type="checkbox" value="OPD"/> OPD</label>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="description">Issue Description <span class="req">*</span></label></td>
+          <td colspan="3">
+            <textarea id="description" rows="4" placeholder="Describe the issue in detail..."></textarea>
+            <div class="err" id="err-description">This field is required.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="attachment">Attach Document</label></td>
+          <td colspan="3">
+            <input type="file" id="attachment" accept="image/*,.pdf"/>
+            <div class="hint">Accepted: JPG, PNG, PDF. Max size: 5MB.</div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="section-head">Declaration</div>
+      <div class="declaration">
+        I hereby declare that the information provided above is true and correct to the best of my knowledge.
+        I understand that providing false information may lead to disciplinary action.
+      </div>
+      <div class="declaration-sign">
+        <label class="check-lbl"><input type="checkbox" id="declare" required/>
+          I agree to the above declaration <span class="req">*</span>
+        </label>
+        <div class="err" id="err-declare">You must agree to the declaration.</div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" onclick="resetForm()">Reset</button>
+        <button type="submit" class="btn-submit">Submit Report</button>
+      </div>
+
+    </form>
+
+    <div class="success-box" id="successBox" style="display:none;">
+      ✅ &nbsp;Your issue report has been submitted successfully. Reference No: <strong id="refNo"></strong>
+    </div>
+
+  </div>
+
+      <footer>
+         <div class="footer-container">
+             <div class="footer-brand">
+                 <div class="footer-logo">
+                     <i class="fa-solid fa-hospital-user"></i>
+                     <h3>EASY<span>CARE</span></h3>
+                 </div>
+                 <p>Centralized Government Hospital Monitoring System — for smarter, faster healthcare decisions across Maharashtra.</p>
+                 <div class="footer-socials">
+                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                     <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                 </div>
+             </div>
+             <div class="footer-links">
+                 <h4>Quick Links</h4>
+                 <ul>
+                     <li><a href="../HomePage/Home.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                     <li><a href="../HospitallistPage/list-page/index.html"><i class="fa-solid fa-chevron-right"></i> Hospital List</a></li>
+                     <li><a href="../adminDashboard/index.html"><i class="fa-solid fa-chevron-right"></i> Admin Dashobard</a></li>
+                     <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Issue Report</a></li>
+                 </ul>
+             </div>
+             <div class="footer-links">
+                 <h4>Services</h4>
+                 <ul>
+                     <li><a href="#"><i class="fa-solid fa-chevron-right"></i> OPD Availability</a></li>
+                     <li><a href="#"><i class="fa-solid fa-chevron-right"></i> ICU Status</a></li>
+                     <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Emergency Units</a></li>
+                     <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Bed Availability</a></li>
+                 </ul>
+             </div>
+             <div class="footer-contact">
+                 <h4>Contact</h4>
+                 <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                 <p><i class="fa-solid fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4979194948b9690a48185979d87859681ca838b92ca8d8a">[email&#160;protected]</a></p>
+                 <p><i class="fa-solid fa-location-dot"></i> Maharashtra, India</p>
+             </div>
+         </div>
+         <div class="footer-bottom">
+             <p>© 2025 EasyCare. All rights reserved. | Developed for Government Hospital Monitoring</p>
+         </div>
+     </footer>
+  <script src="script.js"></script>
+</body>
+</html>
